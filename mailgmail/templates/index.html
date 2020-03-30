@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mail Sending</title>
+    <head>
+        <title>DataFlair send email</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous">
+    </head>
+</head>
+<body>
+<div class="container">
+    <h1 class='alert alert-success'>Subscribe Form</h1>
+    <h1>{% if recipient %}
+        email sent successfully to: {{ recipient }}
+        {% endif %}
+    </h1>
+    <form method="POST" action="dmail">
+        {% csrf_token %}
+        <div class="form-group">
+            <p>
+            <h3>{{ form.as_p }}</h3>
+            </p>
+            <br>
+            <input type="submit" name="Send Mail" class='btn btn-primary btn-lg'>
+        </div>
+    </form>
+</div>
+</body>
+</html>
